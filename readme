@@ -4,3 +4,59 @@ do this before runiing running it
 pip install qrcode[pil]
 
 SAY HI TO ME THERE AND DONT FORGET TO FOLLOW ME'
+
+
+
+........................................................                                            .................................................................................
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::.................................................................................
+..........................................................................................................................................................................................................
+      THE CODES EXPLAINED HERE, EACH CODE HAS IT's EXPLANATION BELOW IT
+....................................................................................................................................................................................................
+
+
+import qrcode
+//This line imports the qrcode library, which is used to create QR codes.
+
+
+def generate_qr_code(data, filename):
+//This defines a function named generate_qr_code that takes two arguments: data and filename. data is the information you want to encode in the QR code (e.g., a URL or text), and filename is the name of the file where you want to save the QR code image.
+
+
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+)
+
+//Here, a new QRCode object is created with various configuration options:
+
+version: The QR code version, which determines the size and capacity of the QR code. In this case, it's set to 1, which is suitable for small amounts of data.
+error_correction: This specifies the level of error correction. ERROR_CORRECT_L stands for low error correction, which is appropriate for most use cases.
+box_size: The size of each "box" or module in the QR code. This determines how large the QR code will be. In this example, it's set to 10, meaning each module will be 10 pixels wide.
+border: The width of the border around the QR code. In this example, it's set to 4, creating a 4-module-wide border.
+
+
+
+qr.add_data(data)
+
+//This line adds the data (the information you want to encode) to the QR code object.
+
+
+qr.make(fit=True)
+
+//This generates the QR code based on the data added earlier. The fit=True argument tells the library to automatically adjust the QR code size to fit the data.
+
+
+img = qr.make_image(fill_color="black", back_color="white")
+
+//This line creates an image of the QR code with specified fill and background colors. In this case, the QR code will have black modules on a white background.
+
+
+img.save(filename)
+
+//Finally, this saves the generated QR code image to the file specified by the filename argument.
+
+The script then checks if it's being run as the main program using the if __name__ == "__main__": block. Inside this block, you can replace the data_to_encode and output_filename variables with your own data and desired output filename. When you run the script, it will generate the QR code and save it as an image in the current working directory.
+
+Once you've customized the data_to_encode and output_filename, running the script will generate a QR code image file that you can share, and others can scan using QR code scanning apps to access the encoded information or perform the associated action.

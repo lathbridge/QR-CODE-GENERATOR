@@ -1,3 +1,6 @@
 This code creates a QRCODE link for my Linkedin profile.
 
+do this before runiing running it
+pip install qrcode[pil]
+
 SAY HI TO ME THERE AND DONT FORGET TO FOLLOW ME'
